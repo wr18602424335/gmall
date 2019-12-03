@@ -1,7 +1,8 @@
 package com.aryun.gmall.user.controller;
 
-import com.aryun.gmall.user.bean.UmsMember;
-import com.aryun.gmall.user.service.UserService;
+
+import com.aryun.gmall.bean.UmsMember;
+import com.aryun.gmall.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

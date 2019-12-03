@@ -37,7 +37,7 @@ server:
   port: 8080
 mybatis-plus:
   mapper-locations: mapper/*.xml
-  type-aliases-package: com.aryun.gmall.user.bean
+  type-aliases-package: com.aryun.gmall.bean
   configuration:
     map-underscore-to-camel-case: true
   global-config:
