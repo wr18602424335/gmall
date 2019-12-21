@@ -1,14 +1,18 @@
 package com.aryun.gmall.bean;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import lombok.Data;
 
 import java.io.Serializable;
 import java.util.List;
 
 /**
+ * 属性值表
  * @param
  * @return
  */
+@Data
 public class PmsBaseAttrInfo implements Serializable {
 
     @TableId
@@ -16,37 +20,6 @@ public class PmsBaseAttrInfo implements Serializable {
     private String attrName;
     private String catalog3Id;
     private String isEnabled;
-   // List<BaseAttrValue> attrValueList;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getAttrName() {
-        return attrName;
-    }
-
-    public void setAttrName(String attrName) {
-        this.attrName = attrName;
-    }
-
-    public String getCatalog3Id() {
-        return catalog3Id;
-    }
-
-    public void setCatalog3Id(String catalog3Id) {
-        this.catalog3Id = catalog3Id;
-    }
-
-    public String getIsEnabled() {
-        return isEnabled;
-    }
-
-    public void setIsEnabled(String isEnabled) {
-        this.isEnabled = isEnabled;
-    }
+    @TableField(exist = false)
+    List<PmsBaseAttrValue> attrValueList;
 }

@@ -41,6 +41,8 @@
         <jest.version>5.3.3</jest.version>
         <jna.version>4.5.1</jna.version>
         <beanUtils.version>1.9.3</beanUtils.version>
+        <fastdfs.vsersion>1.27-SNAPSHOT</fastdfs.vsersion>
+
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -187,6 +189,12 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
+            </dependency>
+            <!--fastdfs-->
+            <dependency>
+                <groupId>org.csource</groupId>
+                <artifactId>fastdfs-client-java</artifactId>
+                <version>${fastdfs.vsersion}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

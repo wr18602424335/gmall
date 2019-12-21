@@ -2,6 +2,7 @@ package com.aryun.gmall.bean;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
@@ -15,7 +16,7 @@ import java.util.Date;
  */
 @Slf4j
 @Data
-public class UmsMember implements Serializable {
+public class UmsMember extends Model<UmsMember> implements Serializable {
     @TableId
     private String id;
     //

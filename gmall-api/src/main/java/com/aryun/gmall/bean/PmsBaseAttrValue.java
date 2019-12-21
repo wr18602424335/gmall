@@ -1,6 +1,8 @@
 package com.aryun.gmall.bean;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 
 import java.io.Serializable;
 
@@ -8,12 +10,13 @@ import java.io.Serializable;
  * @param
  * @return
  */
-public class PmsBaseAttrValue implements Serializable {
+public class PmsBaseAttrValue extends Model<PmsBaseAttrValue> implements Serializable {
     @TableId
     private String id;
     private String valueName;
     private String attrId;
     private String isEnabled;
+    @TableField(exist = false)
     private String urlParam;
 
     public String getId() {

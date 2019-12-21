@@ -1,6 +1,7 @@
 package com.aryun.gmall.bean;
 
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 
 import java.io.Serializable;
@@ -15,16 +16,9 @@ public class PmsBaseCatalog2 implements Serializable {
     private String id;
     private String name;
     private String catalog1Id;
+    @TableField(exist = false)
+    private List<PmsBaseCatalog3> catalog3List;
 
-    //private List<BaseCatalog3> catalog3List;
-
-    //public List<BaseCatalog3> getCatalog3List() {
-    //    return catalog3List;
-    //}
-
-    //public void setCatalog3List(List<BaseCatalog3> catalog3List) {
-    //    this.catalog3List = catalog3List;
-    //}
 
     public String getId() {
         return id;
@@ -48,5 +42,13 @@ public class PmsBaseCatalog2 implements Serializable {
 
     public void setCatalog1Id(String catalog1Id) {
         this.catalog1Id = catalog1Id;
+    }
+
+    public List<PmsBaseCatalog3> getCatalog3List() {
+        return catalog3List;
+    }
+
+    public void setCatalog3List(List<PmsBaseCatalog3> catalog3List) {
+        this.catalog3List = catalog3List;
     }
 }
