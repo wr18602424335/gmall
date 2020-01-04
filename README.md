@@ -1,4 +1,4 @@
-# gmall1
+# gmall
 
 gmall-user-web  service 8080
 
