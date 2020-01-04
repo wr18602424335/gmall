@@ -1,5 +1,6 @@
 package com.aryun.gmall.bean;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 
 import java.io.Serializable;
@@ -13,7 +14,7 @@ public class PmsProductSaleAttrValue implements Serializable {
     String saleAttrId;
 
     String saleAttrValueName;
-
+    @TableField(exist = false)
     String isChecked;
 
     public String getId() {
