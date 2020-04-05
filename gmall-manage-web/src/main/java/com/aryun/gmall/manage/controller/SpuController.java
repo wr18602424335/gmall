@@ -1,9 +1,12 @@
 package com.aryun.gmall.manage.controller;
 
+import com.aryun.gmall.bean.PmsProductImage;
 import com.aryun.gmall.bean.PmsProductInfo;
+import com.aryun.gmall.bean.PmsProductSaleAttr;
 import com.aryun.gmall.manage.util.PmsUploadUtil;
 import com.aryun.gmall.service.PmsSpuService;
 import org.apache.dubbo.config.annotation.Reference;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -16,22 +19,22 @@ public class SpuController {
     @Reference
     PmsSpuService pmsSpuService;
 
-//    @RequestMapping("spuImageList")
-//    @ResponseBody
-//    public List<PmsProductImage> spuImageList(String spuId){
-//
-//        List<PmsProductImage> pmsProductImages = spuService.spuImageList(spuId);
-//        return pmsProductImages;
-//    }
-//
-//
-//    @RequestMapping("spuSaleAttrList")
-//    @ResponseBody
-//    public List<PmsProductSaleAttr> spuSaleAttrList(String spuId){
-//
-//        List<PmsProductSaleAttr> pmsProductSaleAttrs = spuService.spuSaleAttrList(spuId);
-//        return pmsProductSaleAttrs;
-//    }
+    @RequestMapping("spuImageList")
+    @ResponseBody
+    public List<PmsProductImage> spuImageList(String spuId){
+
+        List<PmsProductImage> pmsProductImages = pmsSpuService.spuImageList(spuId);
+        return pmsProductImages;
+    }
+
+
+    @RequestMapping("spuSaleAttrList")
+    @ResponseBody
+    public List<PmsProductSaleAttr> spuSaleAttrList(String spuId){
+
+        List<PmsProductSaleAttr> pmsProductSaleAttrs = pmsSpuService.spuSaleAttrList(spuId);
+        return pmsProductSaleAttrs;
+    }
 
 
 

@@ -39,6 +39,13 @@ public class PmsBaseAttrInfoServiceImpl extends ServiceImpl<PmsBaseAttrInfoMappe
         Map<String,Object> map=Maps.newHashMap();
         map.put("catalog3_id",id);
         List<PmsBaseAttrInfo> pmsBaseAttrInfoList=pmsBaseAttrInfoMapper.selectByMap(map);
+        //向attrInfoList填充数据
+        for(PmsBaseAttrInfo pmsBaseAttrInfo:pmsBaseAttrInfoList){
+            Map<String,Object> maps=Maps.newHashMap();
+            maps.put("attr_id",pmsBaseAttrInfo.getId());
+            List<PmsBaseAttrValue>  pmsBaseAttrValues=pmsBaseAttrValueMapper.selectByMap(maps);
+            pmsBaseAttrInfo.setAttrValueList(pmsBaseAttrValues);
+        }
         return pmsBaseAttrInfoList;
 
     }

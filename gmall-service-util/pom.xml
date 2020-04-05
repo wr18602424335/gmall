@@ -34,10 +34,21 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <!--redis-->
+        <!--redis引入-->
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
+        </dependency>
+        <!--spring-boot-starter-data-redis 整合redis引入 此方法和上面引入jedis一样，用一个即可-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <!--分布式框架层面实现锁-->
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>3.10.5</version>
         </dependency>
     </dependencies>
 </project>

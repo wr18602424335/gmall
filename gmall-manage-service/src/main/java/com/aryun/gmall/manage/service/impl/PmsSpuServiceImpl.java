@@ -4,7 +4,6 @@ import com.aryun.gmall.bean.PmsProductImage;
 import com.aryun.gmall.bean.PmsProductInfo;
 import com.aryun.gmall.bean.PmsProductSaleAttr;
 import com.aryun.gmall.bean.PmsProductSaleAttrValue;
-import com.aryun.gmall.commonUtil.config.MyException;
 import com.aryun.gmall.manage.mapper.PmsProductImageMapper;
 import com.aryun.gmall.manage.mapper.PmsProductInfoMapper;
 import com.aryun.gmall.manage.mapper.PmsProductSaleAttrMapper;
@@ -78,5 +77,46 @@ public class PmsSpuServiceImpl implements PmsSpuService {
             pmsProductImageMapper.insert(pmsProductImage);
         }
         return null;
+    }
+
+    /**
+     * 更改sku操作的时候请求获取销售品的信息
+     * @param spuId
+     * @return
+     */
+    @Override
+    public List<PmsProductSaleAttr> spuSaleAttrList(String spuId) {
+        LambdaQueryWrapper<PmsProductSaleAttr> queryWrapper= Wrappers.lambdaQuery();
+        queryWrapper.eq(PmsProductSaleAttr::getProductId,spuId);
+        List<PmsProductSaleAttr> pmsProductSaleAttrs=pmsProductSaleAttrMapper.selectList(queryWrapper);
+        //填充属性值
+        for(PmsProductSaleAttr pmsProductSaleAttr:pmsProductSaleAttrs){
+            //获取值表进行填充
+            LambdaQueryWrapper<PmsProductSaleAttrValue> pmsProductSaleAttrValueLambdaQueryWrapper= Wrappers.lambdaQuery();
+            pmsProductSaleAttrValueLambdaQueryWrapper.eq(PmsProductSaleAttrValue::getSaleAttrId,pmsProductSaleAttr.getSaleAttrId()).eq(PmsProductSaleAttrValue::getProductId,pmsProductSaleAttr.getProductId());
+            List<PmsProductSaleAttrValue> pmsProductSaleAttrValues=pmsProductSaleAttrValueMapper.selectList(pmsProductSaleAttrValueLambdaQueryWrapper);
+            pmsProductSaleAttr.setSpuSaleAttrValueList(pmsProductSaleAttrValues);
+        }
+        return pmsProductSaleAttrs;
+    }
+
+    /**
+     * 更改sku操作的时候请求获取销售品图片的信息
+     * @param spuId
+     * @return
+     */
+    @Override
+    public List<PmsProductImage> spuImageList(String spuId) {
+        LambdaQueryWrapper<PmsProductImage> queryWrapper= Wrappers.lambdaQuery();
+        queryWrapper.eq(PmsProductImage::getProductId,spuId);
+        List<PmsProductImage> pmsProductImages=pmsProductImageMapper.selectList(queryWrapper);
+        return pmsProductImages;
+    }
+
+    @Override
+    public List<PmsProductSaleAttr> spuSaleAttrListCheckBySku(String productId,String skuId) {
+        //获取属性参数
+        List<PmsProductSaleAttr> pmsProductSaleAttrs=pmsProductSaleAttrMapper.selectSpuSaleAttrListCheckBySku(productId,skuId);
+        return pmsProductSaleAttrs;
     }
 }
