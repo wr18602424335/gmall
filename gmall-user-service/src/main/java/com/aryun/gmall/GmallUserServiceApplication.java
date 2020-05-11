@@ -1,4 +1,4 @@
-package com.aryun.gmall.user;
+package com.aryun.gmall;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

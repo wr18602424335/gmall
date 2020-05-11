@@ -63,7 +63,7 @@ mybatis-plus:
     #添加日志级别
 logging:
   level:
-    root: debug
+    root: info
     com.aryun.gmall.user.mapper: trace
   pattern:
     conole: '%p%m%n'

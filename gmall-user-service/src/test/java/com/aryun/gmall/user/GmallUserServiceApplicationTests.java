@@ -1,6 +1,7 @@
 package com.aryun.gmall.user;
 
 
+import com.aryun.gmall.GmallUserServiceApplication;
 import com.aryun.gmall.bean.UmsMember;
 import com.aryun.gmall.user.mapper.UserMapper;
 import org.apache.ibatis.session.SqlSession;

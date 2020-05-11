@@ -4,8 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.aryun.gmall.annotations.LoginRequired;
 import com.aryun.gmall.bean.OmsCartItem;
 import com.aryun.gmall.bean.PmsSkuInfo;
+import com.aryun.gmall.bean.UmsMember;
 import com.aryun.gmall.service.PmsCartService;
 import com.aryun.gmall.service.PmsSkuService;
+import com.aryun.gmall.service.UserService;
 import com.aryun.gmall.util.CookieUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.dubbo.config.annotation.Reference;
@@ -27,12 +29,13 @@ public class CartController {
 PmsSkuService pmsSkuService;
 @Reference
 PmsCartService cartService;
-
+@Reference
+UserService userService;
 
 
     @RequestMapping("toTrade")
     public String toTrade(HttpServletRequest request, HttpServletResponse response, HttpSession session,ModelMap modelMap) {
-
+        UmsMember umsMemberLogin=userService.login(new UmsMember());
         return "test";
     }
 
