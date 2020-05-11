@@ -43,4 +43,10 @@ class GmallUserServiceApplicationTests {
         System.out.println(StringUtils.isBlank(String.valueOf(n)));
     }
 
+
+    public static void main(String[] args) {
+        int[] i=null;
+        int i1=i.length;
+        System.out.println(i1);
+    }
 }

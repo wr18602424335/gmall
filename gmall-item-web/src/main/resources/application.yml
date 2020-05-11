@@ -28,4 +28,3 @@ spring:
     cache: false
     # 松校验
     mode: LEGACYHTML5
-

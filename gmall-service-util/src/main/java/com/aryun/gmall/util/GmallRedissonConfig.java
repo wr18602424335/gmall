@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * 初始化redisson
  */
-@Configuration
+//@Configuration
 public class GmallRedissonConfig {
 //    @Value("${spring.redis.host}")
 //    private String host;

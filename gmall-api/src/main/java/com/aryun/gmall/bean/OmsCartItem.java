@@ -1,7 +1,11 @@
 package com.aryun.gmall.bean;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Data;
+import lombok.Value;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -14,7 +18,7 @@ public class OmsCartItem implements Serializable{
     private String productId;
     private String productSkuId;
     private String memberId;
-    private int quantity;
+    private Integer quantity;
     private BigDecimal price;
     private String sp1;
     private String sp2;
@@ -31,4 +35,8 @@ public class OmsCartItem implements Serializable{
     private String productBrand;
     private String productSn;
     private String productAttr;
+    @TableField(value = "isChecked")
+    private String isChecked;
+    @TableField(exist = false)
+    private BigDecimal totalPrice;
 }

@@ -3,6 +3,7 @@ package com.aryun.gmall.manage.service.impl;
 import com.aryun.gmall.bean.PmsBaseAttrInfo;
 
 import com.aryun.gmall.bean.PmsBaseAttrValue;
+import com.aryun.gmall.bean.PmsSkuAttrValue;
 import com.aryun.gmall.commonUtil.config.MyException;
 import com.aryun.gmall.manage.mapper.PmsBaseAttrInfoMapper;
 
@@ -19,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Service
 public class PmsBaseAttrInfoServiceImpl extends ServiceImpl<PmsBaseAttrInfoMapper,PmsBaseAttrInfo> implements PmsBaseAttrInfoService {
@@ -74,5 +76,18 @@ public class PmsBaseAttrInfoServiceImpl extends ServiceImpl<PmsBaseAttrInfoMappe
         }
 
         return "true";
+    }
+
+    /**
+     *获取组合后的平台属性信息
+     * @param valueSet
+     * @return
+     */
+    @Override
+    public List<PmsBaseAttrInfo> getAttrValueListByValueId(Set<String> valueSet) {
+        //利用StringUtils工具类将valueSet以逗号分隔
+        String strValueIds=StringUtils.join(valueSet,",");
+        List<PmsBaseAttrInfo> pmsSkuAttrValue= pmsBaseAttrInfoMapper.getAttrValueListByValueId(strValueIds);
+        return pmsSkuAttrValue;
     }
 }

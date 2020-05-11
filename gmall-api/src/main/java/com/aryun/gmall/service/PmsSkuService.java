@@ -31,4 +31,11 @@ public interface PmsSkuService {
      * @return
      */
     List<PmsSkuInfo> getSkuSaleAttrValueListBySpu(String productId);
+
+    /**
+     * 搜索模块需要的数据
+     * @param catalog3Id
+     * @return
+     */
+    List<PmsSkuInfo> getAllSku(String catalog3Id);
 }

@@ -13,7 +13,7 @@ dubbo:
   scan:
     base-packages: com.aryun.gmall
 server:
-  port: 8083
+  port: 8081
     #添加日志级别
 logging:
   level:

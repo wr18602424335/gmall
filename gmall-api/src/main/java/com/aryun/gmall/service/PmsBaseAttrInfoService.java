@@ -4,6 +4,7 @@ package com.aryun.gmall.service;
 import com.aryun.gmall.bean.*;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  *商品属性表
@@ -23,5 +24,8 @@ public interface PmsBaseAttrInfoService {
      */
     String attrInfoList(PmsBaseAttrInfo pmsBaseAttrInfo);
 
-
+    /**
+     *根据平台属性值id封装平台信息
+     */
+    List<PmsBaseAttrInfo> getAttrValueListByValueId(Set<String>  valueSet);
 }

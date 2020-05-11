@@ -3,4 +3,22 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aryun.gmall.manage.mapper.PmsBaseAttrInfoMapper">
+    <select id="getAttrValueListByValueId" resultMap="selectAttrValueListByValueIdMap" parameterType="string">
+        SELECT
+            ba.*,ba.id as ba_id,bv.*,bv.id as bv_id
+        From
+            pms_base_attr_info ba,
+            pms_base_attr_value bv
+        WHERE
+            ba.id=bv.attr_id
+        AND
+            bv.id in (${str})
+
+    </select>
+    <resultMap id="selectAttrValueListByValueIdMap" type="com.aryun.gmall.bean.PmsBaseAttrInfo" autoMapping="true">
+    <result column="ba_id" property="id"></result>
+        <collection property="attrValueList" ofType="com.aryun.gmall.bean.PmsBaseAttrValue" autoMapping="true">
+            <result property="id" column="bv_id"></result>
+        </collection>
+    </resultMap>
 </mapper>

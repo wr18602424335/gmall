@@ -136,7 +136,7 @@ public class PmsSkuServiceImpl extends ServiceImpl<PmsSkuInfoMapper, PmsSkuInfo>
                 }
             //加锁10秒钟(获取一个随机的token,用来校验是否为自己的锁
             System.out.println("同学："+Thread.currentThread().getName()+"上锁取数据前");
-            jedis.set(lockKey,tokenUuId,"nx","px",10*1000);
+            //jedis.set(lockKey,tokenUuId,"nx","px",10*1000);
             System.out.println("同学："+Thread.currentThread().getName()+"上锁取数据后："+ jedis.get(lockKey));
             PmsSkuInfo pmsSkuInfoDb=getSkuBuIdFromDb(skuId);
             //取完数据等3秒，测试用
@@ -185,5 +185,24 @@ public class PmsSkuServiceImpl extends ServiceImpl<PmsSkuInfoMapper, PmsSkuInfo>
         List<PmsSkuImage> pmsSkuImageList=pmsSkuImageMapper.selectList(lambdaQueryWrapper);
         pmsSkuInfo.setSkuImageList(pmsSkuImageList);
         return pmsSkuInfo;
+    }
+
+    /**
+     *
+     * @param catalog3Id
+     * @return
+     */
+    @Override
+    public List<PmsSkuInfo> getAllSku(String catalog3Id) {
+        LambdaQueryWrapper lambdaQueryWrapper=Wrappers.lambdaQuery();
+        List<PmsSkuInfo> pmsSkuInfos=pmsSkuInfoMapper.selectList(lambdaQueryWrapper);
+        for(PmsSkuInfo pmsSkuInfo:pmsSkuInfos){
+            String skuId=pmsSkuInfo.getId();
+            LambdaQueryWrapper<PmsSkuAttrValue> lambdaQueryWrapper1=Wrappers.lambdaQuery();
+            lambdaQueryWrapper1.eq(PmsSkuAttrValue::getSkuId,skuId);
+            List<PmsSkuAttrValue> pmsSkuAttrValueList=pmsSkuAttrValueMapper.selectList(lambdaQueryWrapper1);
+            pmsSkuInfo.setSkuAttrValueList(pmsSkuAttrValueList);
+        }
+        return pmsSkuInfos;
     }
 }
