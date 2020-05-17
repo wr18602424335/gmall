@@ -50,7 +50,7 @@ public class PassportController {
     }
 
     /**
-     * 登录成功验证界面
+     * 登录验证
      * @param umsMember
      * @return
      */
@@ -95,7 +95,7 @@ public class PassportController {
     }
 
     /**
-     *登录界面验证，颁发token信息
+     *登录界面
      * @param ReturnUrl  获取请求过来的地址信息
      * @return
      */
@@ -105,4 +105,27 @@ public class PassportController {
         modelMap.put("ReturnUrl",ReturnUrl);
         return "index";
     }
+
+
+    /**
+     * 社交登录的验证
+     * 根据code 获取授权码
+     * 通过授权码获取用户信息
+     * @param code
+     * @return
+     */
+    @RequestMapping("vlogin")
+    @ResponseBody
+    public String vlogin(String code, HttpServletRequest request) {
+        //获取授权码access_token
+
+        //access_token获取用户信息
+
+        //将用户信息保存到数据库中，用户设计为微博
+
+        //生成jwt的token,并重定向到首页，携带token
+
+        return null;
+    }
+
 }
