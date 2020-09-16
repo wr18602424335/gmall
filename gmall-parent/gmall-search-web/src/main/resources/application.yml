@@ -1,0 +1,31 @@
+#通信规则
+dubbo:
+  application:
+    name: item-web
+  protocol:
+    name: dubbo
+    port: -1
+  ## Dubbo Registry
+  #dubbo.registry.address=N/A
+  #注册中心 协议 和地址
+  registry:
+    address: zookeeper://192.168.0.3:2181
+  scan:
+    base-packages: com.aryun.gmall
+  consumer:
+    timeout: 8000
+server:
+  port: 8083
+    #添加日志级别
+logging:
+  level:
+    root: info
+  pattern:
+    conole: '%p%m%n'
+spring:
+  thymeleaf:
+    # 关闭thymeleaf的缓存(热部署)
+    cache: false
+    # 松校验
+    mode: LEGACYHTML5
+

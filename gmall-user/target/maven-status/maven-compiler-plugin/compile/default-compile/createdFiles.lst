@@ -1,7 +1,0 @@
-com\aryun\gmall\user\controller\UserController.class
-com\aryun\gmall\user\service\BaseService.class
-com\aryun\gmall\user\bean\UmsMember.class
-com\aryun\gmall\user\service\impl\UserServiceImpl.class
-com\aryun\gmall\user\service\UserService.class
-com\aryun\gmall\user\GmallUserApplication.class
-com\aryun\gmall\user\mapper\UserMapper.class
