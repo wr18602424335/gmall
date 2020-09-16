@@ -27,7 +27,6 @@
         <module>gmall-search-service</module>
         <module>gmall-search-web</module>
         <module>gmall-service-util</module>
-        <module>gmall-user</module>
         <module>gmall-user-service</module>
         <module>gmall-user-web</module>
         <module>gmall-web-util</module>
