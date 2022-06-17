@@ -39,7 +39,7 @@
         <mybatisplus-spring-boot-starter.version>3.1.2</mybatisplus-spring-boot-starter.version>
         <mybatisplus-generator.version>3.1.2</mybatisplus-generator.version>
         <lombok.version>1.18.8</lombok.version>
-        <fastjson.version>1.2.46</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <dubbo-starter.version>2.7.1</dubbo-starter.version>
         <dubbo.version>2.7.1</dubbo.version>
         <dubbo.dependencies.zookeeper>2.7.1</dubbo.dependencies.zookeeper>
